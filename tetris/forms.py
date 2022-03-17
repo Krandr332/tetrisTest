@@ -43,12 +43,13 @@ class LogCheck(ModelForm):
 
 
 class CreatUserForm(UserCreationForm):
-    username = forms.CharField(label='ЛОГИН',widget=forms.TextInput(attrs={'class': 'form-input'}),required=True)
-    password1 = forms.CharField(label='ПАРОЛЬ1',widget=forms.PasswordInput(attrs={'class': 'form-input'}), required=True)
-    password2 = forms.CharField(label='ПАРОЛЬ2', widget=forms.PasswordInput(attrs={'class': 'form-input'}), required=True)
+    username = forms.CharField(label='ЛОГИН', widget=forms.TextInput(attrs={'class': 'form-input'}), required=True)
+    password1 = forms.CharField(label='ПАРОЛЬ1', widget=forms.PasswordInput(attrs={'class': 'form-input'}),
+                                required=True)
+    password2 = forms.CharField(label='ПАРОЛЬ2', widget=forms.PasswordInput(attrs={'class': 'form-input'}),
+                                required=True)
     email = forms.EmailField(label='ПОЧТА', widget=forms.EmailInput(attrs={'class': 'form-input'}), required=True)
 
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2','date_joined']
-
+        fields = ['username', 'password1', 'password2', 'date_joined']
