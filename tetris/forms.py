@@ -42,7 +42,7 @@ class LogCheck(ModelForm):
         fields = ['username', 'password']
 
 
-class CreatUserForm(UserCreationForm):
+class CreatUserForm(forms.ModelForm):
     username = forms.CharField(label='ЛОГИН', widget=forms.TextInput(attrs={'class': 'form-input'}), required=True)
     password1 = forms.CharField(label='ПАРОЛЬ1', widget=forms.PasswordInput(attrs={'class': 'form-input'}),
                                 required=True)
@@ -53,3 +53,9 @@ class CreatUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2', 'date_joined']
+
+    def clean_password2(self):
+        cd = self.cleaned_data
+        if cd['password1'] != cd['password2']:
+            raise forms.ValidationError('Passwords don\'t match.')
+        return cd['password2']

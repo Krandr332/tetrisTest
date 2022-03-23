@@ -31,20 +31,20 @@
             <div class="line13"></div>
     </div>
 
-    <form action="" method="post">
+    <form method="POST">
         {% csrf_token %}
         <div class = 'input_form'>
             <div class = username>
-                {{form.username}}
+                {{form_u.username}}
             </div>
             <p class = 'login'>login</p>
 
             <div class = 'password1'>
-                {{ form.password1 }}
+                {{ form_u.password1 }}
             </div>
             <p class = 'pass1'>password1</p>
             <div class = 'password2'>
-                {{ form.password2 }}
+                {{ form_u.password2 }}
             </div>
             <p class = 'pass2'>password2</p>
 

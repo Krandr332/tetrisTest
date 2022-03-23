@@ -9,7 +9,7 @@ from django.views.generic import CreateView
 from django import views
 from django import template
 from django.contrib.auth.forms import UserCreationForm
-from .forms import  CreatUserForm, LogCheck
+from .forms import CreatUserForm, LogCheck
 
 
 # from tetris.forms import RegForm
@@ -23,16 +23,20 @@ def auth(request):
     return render(request, 'testT/register.html')
 
 
-
 def reg(request):
-    form = UserCreationForm
-    context = {'form': form}
-    form = UserCreationForm()
+    form_u = UserCreationForm(request.POST)
+    new_user = None
     if request.method == 'POST':
-        if form.is_valid():
-            form.save()
-        return render(request, 'testT/register.html', {'form': form})
-    return render(request, 'testT/register.html', context)
+        if form_u.is_valid():
+            new_user = form_u.save(commit=False)
+            new_user.set_password(form_u.cleaned_data['password2'])
+            new_user.save()
+        else:
+            print(form_u.errors)
+
+        return render(request, 'testT/register.html', {'new_user': new_user})
+    return render(request, 'testT/register.html', {'form_u': form_u})
+
 
 # def reg(request):
 #     form = RegForm()
