@@ -29,6 +29,20 @@
         left: 38%;
 
 }
+.qwe{
+    position: absolute;
+    width: 70px;
+    height: 28px;
+    font-family: Typ_Al;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+    text-transform: uppercase;
+        top : 10%;
+        left: 10%;
+}
 .username{
     position: absolute;
     background-color: #BC87D7;

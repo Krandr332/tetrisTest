@@ -117,4 +117,19 @@
             left: 91.5%;
 
 }
+.name{
+    position: absolute;
+    width: 75px;
+    height: 35px;
+    font-family: Typ_Al;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+    text-transform: uppercase;
+    border: 5px solid #000000;
+    border-radius: 10px;
+            top : 30%;
+            left: 10%;
+}
 

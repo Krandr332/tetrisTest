@@ -26,6 +26,7 @@
                 <button class = "rating"  href = "#">rating</button>
                 {% if user.is_authenticated %}
                     <h6 class = 'name'>{{ user.username }}</h6>
+                    <a  class = "exit" href="{% url 'exit' %}" >exit</a>
                 {% else %}
                     <button class = "reg" onclick="window.location.href = '{% url 'reg' %}';" >reg</button>
                     <button class = "auth" onclick="window.location.href = '{% url 'auth' %}';">auth</button>

@@ -9,10 +9,8 @@ from django.views.generic import CreateView
 from django import views
 from django import template
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CreatUserForm, LogCheck
-
-
-# from tetris.forms import RegForm
+from .forms import CreatUserForm, LogForm
+from django.contrib.auth import logout
 
 
 def home(request):
@@ -20,7 +18,7 @@ def home(request):
 
 
 def auth(request):
-    return render(request, 'testT/register.html')
+    return render(request, 'testT/auth.html')
 
 
 def reg(request):
@@ -38,21 +36,20 @@ def reg(request):
     return render(request, 'testT/register.html', {'form_u': form_u})
 
 
-# def reg(request):
-#     form = RegForm()
-#     if request.method == 'POST':
-#         if form.is_valid():
-#             form.save()
-#     return render(request, 'testT/register.html', {'form': form})
-
-
 def avtoriz(request):
-    form = LogCheck()
+    form = LogForm(request.POST)
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
-        if user is None:
-            login(request, username)
-            redirect('home')
+        if user is not None:
+            login(request, user)
+            redirect('/tetris/')
+        else:
+            print(form.errors)
     return render(request, 'testT/auth.html', {'form': form})
+
+
+def exit(request):
+    logout(request)
+    return render(request, 'testT/home.html')
