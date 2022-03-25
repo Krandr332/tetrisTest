@@ -20,13 +20,15 @@
                 ">
             <div class = "header-bar" >
     {#            НЕ ВСТАВЛЯЕТСЯ ИКОНКА ! ПОПОРОСИТЬ ПОМОЩИ У ПРЕПОДА#}
-             <img  src="{% static '/tetris/static/images/plata.png' %}" width="50" height="50"  alt="icon">
+             <img  class="plata" src="{% static 'images/plata.png' %}" width="50" height="50"  alt="icon">
                 <button class = "game"  href = "#">GAME</button>
                 <button class = "history" href = "#">history</button>
                 <button class = "rating"  href = "#">rating</button>
                 {% if user.is_authenticated %}
-                    <h6 class = 'name'>{{ user.username }}</h6>
+                    <h6 class = "name">{{ user.username }}</h6>
                     <a  class = "exit" href="{% url 'exit' %}" >exit</a>
+                    <img  class="robot" src="{% static 'images/free-icon-robot-6889070.png' %}" width="50" height="50"  alt="icon">
+
                 {% else %}
                     <button class = "reg" onclick="window.location.href = '{% url 'reg' %}';" >reg</button>
                     <button class = "auth" onclick="window.location.href = '{% url 'auth' %}';">auth</button>
