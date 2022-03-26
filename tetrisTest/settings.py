@@ -27,7 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tetris.apps.TetrisConfig'
+    'tetris.apps.TetrisConfig',
+
 
 ]
 
