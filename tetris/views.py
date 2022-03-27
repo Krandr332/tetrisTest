@@ -17,6 +17,10 @@ def home(request):
     return render(request, 'testT/home.html')
 
 
+def game(request):
+    return render(request, 'testT/game.html')
+
+
 def auth(request):
     return render(request, 'testT/auth.html')
 
