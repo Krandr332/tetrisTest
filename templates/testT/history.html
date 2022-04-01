@@ -30,7 +30,11 @@
             <div class="line12"></div>
             <div class="line13"></div>
     </div>
-
+    <div class="score1">
+        {% for i in item %}
+            <p class = "score">{{ i.score }}</p>
+        {% endfor %}
+    </div>
 
 </div>
 <!-- JavaScript Bundle with Popper -->

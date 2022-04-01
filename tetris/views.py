@@ -9,6 +9,8 @@ from django.views.generic import CreateView
 from django import views
 from django import template
 from django.contrib.auth.forms import UserCreationForm
+
+from .models import Profile
 from .forms import CreatUserForm, LogForm
 from django.contrib.auth import logout
 
@@ -28,7 +30,8 @@ def auth(request):
 
 
 def history(request):
-    return render(request, 'testT/history.html')
+    item = Profile.objects.filter(author=request.user)
+    return render(request, 'testT/history.html',{'item': item})
 
 
 def reg(request):
