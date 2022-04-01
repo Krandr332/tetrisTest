@@ -22,7 +22,7 @@
     {#            НЕ ВСТАВЛЯЕТСЯ ИКОНКА ! ПОПОРОСИТЬ ПОМОЩИ У ПРЕПОДА#}
              <img  class="plata" src="{% static 'images/plata.png' %}" width="50" height="50"  alt="icon">
                 <button class = "game"  href = "#">GAME</button>
-                <button class = "history" href = "#">history</button>
+                <button class = "history" onclick="window.location.href = '{% url 'history' %}';" >history</button>
                 <button class = "rating"  href = "#">rating</button>
                 {% if user.is_authenticated %}
                     <h6 class = "name">{{ user.username }}</h6>

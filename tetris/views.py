@@ -12,6 +12,8 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import CreatUserForm, LogForm
 from django.contrib.auth import logout
 
+from .models import Profile
+
 
 def home(request):
     return render(request, 'testT/home.html')
@@ -25,6 +27,10 @@ def auth(request):
     return render(request, 'testT/auth.html')
 
 
+def history(request):
+    return render(request, 'testT/history.html')
+
+
 def reg(request):
     form_u = UserCreationForm(request.POST)
     new_user = None
@@ -33,6 +39,8 @@ def reg(request):
             new_user = form_u.save(commit=False)
             new_user.set_password(form_u.cleaned_data['password2'])
             new_user.save()
+            # Profile.objects.create(**{'user': new_user})
+
         else:
             print(form_u.errors)
 
