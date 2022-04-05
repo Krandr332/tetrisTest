@@ -25,14 +25,16 @@
             <div class="line7"></div>
             <div class="line8"></div>
             <div class="line9"></div>
-            <div class="line10"></div>
+            <div class="line10" ></div>
             <div class="line11"></div>
             <div class="line12"></div>
             <div class="line13"></div>
     </div>
     <div class="score1">
-        {% for i in item %}
+        {% for i in items %}
             <p class = "score">{{ i.score }}</p>
+            <p class = "data">{{ i.data_scope }}</p>
+            <p>________________________</p>
         {% endfor %}
     </div>
 

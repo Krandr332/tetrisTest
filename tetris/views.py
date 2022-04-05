@@ -1,4 +1,6 @@
+import generics as generics
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 
@@ -30,8 +32,17 @@ def auth(request):
 
 
 def history(request):
-    item = Profile.objects.filter(author=request.user)
-    return render(request, 'testT/history.html',{'item': item})
+    contex = {
+        'items': Profile.objects.filter(user=request.user.id)
+    }
+    return render(request, 'testT/history.html', contex)
+
+
+def save_from_bd(request):
+    current_user = request.user
+    a = current_user.id
+    print(a)
+    return a
 
 
 def reg(request):
