@@ -115,10 +115,23 @@
     font-size: 20px;
     line-height: 28px;
     text-transform: uppercase;
-    border: 5px solid #000000;
     border-radius: 10px;
             top : 25%;
             left: 85%;
+}
+.exit{
+    position: absolute;
+    width: 45px;
+    height: 15px;
+    font-family: Typ_Al;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+    text-transform: uppercase;
+    border-radius: 10px;
+            top : 50%;
+            left: 90%;
 }
 .line-1{
     position: absolute;

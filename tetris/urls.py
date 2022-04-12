@@ -8,6 +8,6 @@ urlpatterns = [
     path('exit/', exit, name='exit'),
     path('game/', game, name='game'),
     path('history/', history, name='history'),
-    # path('history/(?P<username>.+)/$', history().as_view(), name='history')
+    path('rating/', rating, name='rating'),
 
 ]

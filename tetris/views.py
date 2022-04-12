@@ -38,6 +38,12 @@ def history(request):
     return render(request, 'testT/history.html', contex)
 
 
+def rating(request):
+    contex = {
+        'items': Profile.objects.all(),
+    }
+
+    return render(request, 'testT/history.html', contex)
 
 
 def reg(request):

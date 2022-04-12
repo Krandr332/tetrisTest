@@ -13,6 +13,7 @@ class Profile(models.Model):
     data_scope = models.DateTimeField(auto_now_add=True)
     top_score = models.CharField(max_length=50, default=0)
 
+
     # @receiver(post_save, sender=User)
     # def create_user_profile(sender, instance, created, **kwargs):
     #     if created:
