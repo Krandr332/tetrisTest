@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+"Модель для записи результатов игр"
+
 
 class Profile(models.Model):
     # модель истории игрока
@@ -12,7 +14,6 @@ class Profile(models.Model):
     score = models.CharField(max_length=50, default=0)
     data_scope = models.DateTimeField(auto_now_add=True)
     top_score = models.CharField(max_length=50, default=0)
-
 
     # @receiver(post_save, sender=User)
     # def create_user_profile(sender, instance, created, **kwargs):
@@ -32,5 +33,3 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.user.username}'
-
-
