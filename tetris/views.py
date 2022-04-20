@@ -18,41 +18,46 @@ from django.contrib.auth import logout
 
 from .models import Profile
 
-"Переодресация"
 
 
 def home(request):
+    """Переодресация"""
+
     return render(request, 'testT/home.html')
 
 
-"Переодресация"
 
 
 def game(request):
+    """Переодресация"""
+
     return render(request, 'testT/game.html')
 
 
-"Переодресация"
 
 
 def auth(request):
+    """Переодресация"""
+
     return render(request, 'testT/auth.html')
 
 
-"Фильтрация значений бд для вывода значений историй игр"
 
 
 def history(request):
+    """Фильтрация значений бд для вывода значений историй игр"""
+
     contex = {
         'items': Profile.objects.filter(user=request.user.id)
     }
     return render(request, 'testT/history.html', contex)
 
 
-"Фильтрация значений бд для вывода значений рейтинга"
 
 
 def rating(request):
+    """Фильтрация значений бд для вывода значений рейтинга"""
+
     contex = {
         'items': Profile.objects.all(),
     }
@@ -60,10 +65,11 @@ def rating(request):
     return render(request, 'testT/history.html', contex)
 
 
-"Регистрация юзера"
 
 
 def reg(request):
+    """Регистрация юзера"""
+
     form_u = UserCreationForm(request.POST)
     new_user = None
     if request.method == 'POST':
@@ -80,10 +86,11 @@ def reg(request):
     return render(request, 'testT/register.html', {'form_u': form_u})
 
 
-"авторизация юзера"
 
 
 def avtoriz(request):
+    """авторизация юзера"""
+
     form = LogForm(request.POST)
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -97,9 +104,10 @@ def avtoriz(request):
     return render(request, 'testT/auth.html', {'form': form})
 
 
-"выход юзера из ака"
+
 
 
 def exit(request):
+    """выход юзера из ака"""
     logout(request)
     return render(request, 'testT/home.html')

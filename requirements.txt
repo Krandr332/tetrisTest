@@ -6,7 +6,7 @@ commonmark==0.9.1
 decorator==5.1.1
 Django==4.0.4
 docutils==0.18.1
-generics==3.4.0
+generics==2.0.0
 idna==3.3
 importlib-metadata==4.11.3
 keyring==23.5.0
@@ -24,3 +24,5 @@ twine==4.0.0
 urllib3==1.26.9
 webencodings==0.5.1
 zipp==3.8.0
+Sphinx == 4.5.0
+

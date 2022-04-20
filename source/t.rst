@@ -1,0 +1,5 @@
+Вьюхи
+------
+
+.. automodule:: views
+    :members:
