@@ -25,7 +25,7 @@ tetrisTest/asgi.py
 tetrisTest/settings.py
 tetrisTest/urls.py
 tetrisTest/wsgi.py
-tetrisTest/__pycache__/__init__.cpython-39.pyc
-tetrisTest/__pycache__/settings.cpython-39.pyc
-tetrisTest/__pycache__/urls.cpython-39.pyc
-tetrisTest/__pycache__/wsgi.cpython-39.pyc
+tetrisTest/__pycache__/__init__.cpython-310.pyc
+tetrisTest/__pycache__/settings.cpython-310.pyc
+tetrisTest/__pycache__/urls.cpython-310.pyc
+tetrisTest/__pycache__/wsgi.cpython-310.pyc

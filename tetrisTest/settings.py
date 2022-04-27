@@ -17,6 +17,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# TIME_ZONE = 'Russia/Moscow'
 
 # Application definition
 
@@ -119,3 +120,15 @@ BASE_DIR / 'static'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# ASGI_APPLICATION = "tetrisT.asgi.application"
+ASGI_APPLICATION = "tetrisT.asgi.application"
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+
+        },
+    },
+}

@@ -10,5 +10,7 @@ urlpatterns = [
     path('history/', history, name='history'),
     path('rating/', rating, name='rating'),
     path('chat/', chat, name='chat'),
+    path('index', index, name='index'),
+    path('room/', room, name='room'),
 
 ]

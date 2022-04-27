@@ -15,15 +15,16 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
 from .forms import CreatUserForm, LogForm
 from django.contrib.auth import logout
+from .models import Message
 
 from .models import Profile
-
 
 
 def home(request):
     """Переодресация"""
 
     return render(request, 'testT/home.html')
+
 
 def chat(request):
     """Переодресация"""
@@ -36,14 +37,10 @@ def game(request):
     return render(request, 'testT/game.html')
 
 
-
-
 def auth(request):
     """Переодресация"""
 
     return render(request, 'testT/auth.html')
-
-
 
 
 def history(request):
@@ -55,8 +52,6 @@ def history(request):
     return render(request, 'testT/history.html', contex)
 
 
-
-
 def rating(request):
     """Фильтрация значений бд для вывода значений рейтинга"""
 
@@ -65,8 +60,6 @@ def rating(request):
     }
 
     return render(request, 'testT/history.html', contex)
-
-
 
 
 def reg(request):
@@ -88,8 +81,6 @@ def reg(request):
     return render(request, 'testT/register.html', {'form_u': form_u})
 
 
-
-
 def avtoriz(request):
     """авторизация юзера"""
 
@@ -106,10 +97,19 @@ def avtoriz(request):
     return render(request, 'testT/auth.html', {'form': form})
 
 
-
-
-
 def exit(request):
     """выход юзера из ака"""
     logout(request)
     return render(request, 'testT/home.html')
+
+
+def index(request):
+    return render(request, 'testT/index.html')
+
+
+def room(request, room_name):
+    username = request.GET.get('username', 'Anonymous')
+    messages = Message.objects.filter(room=room_name)[0:25]
+
+    return render(request, 'testT/room.html', {'room_name': room_name, 'username': username, 'messages': messages
+                                               })
