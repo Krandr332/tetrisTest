@@ -30,13 +30,3 @@
 
 }
 
-.line00{
-    position: absolute;
-    width: 73px;
-    height: 0px;
-    border: 2px solid #000000;
-    transform: rotate(-62.88deg);
-    text-transform: uppercase;
-        top : 8%;
-        left: -7%;
-}

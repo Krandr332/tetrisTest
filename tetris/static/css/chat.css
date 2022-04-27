@@ -31,7 +31,7 @@
 }
 .chat_button{
 	position: absolute;
-    width: 65px;
+    width: 79px;
     height: 35px;
     background: #B0B8E5;
     border: 5px solid #000000;
@@ -39,6 +39,6 @@
     border-radius: 10px;
     text-transform: uppercase;
         top : 100%;
-        left: 110%;
+        left: 107%;
 
 }
