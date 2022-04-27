@@ -9,5 +9,6 @@ urlpatterns = [
     path('game/', game, name='game'),
     path('history/', history, name='history'),
     path('rating/', rating, name='rating'),
+    path('chat/', chat, name='chat'),
 
 ]

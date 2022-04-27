@@ -1,0 +1,44 @@
+@font-face {
+	font-family: "ROBOTOP";
+	src: url("../fonts/ROBOTOP/ROBOTOP.ttf");
+	src: url("../fonts/ROBOTOP/ROBOTOP.ttf") format("embedded-opentype"),
+			 url("../fonts/ROBOTOP/ROBOTOP.ttf") format("woff"),
+			 url("../fonts/ROBOTOP/ROBOTOP.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+@font-face {
+	font-family: "Typ_Al";
+	src: url("../fonts/Typometry/Typometry_Alternate.ttf");
+	src: url("../fonts/Typometry/Typometry_Alternate.ttf") format("embedded-opentype"),
+			 url("../fonts/Typometry/Typometry_Alternate.ttf") format("woff"),
+			 url("../fonts/Typometry/Typometry_Alternate.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+.chat_window{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: #B0B8E5;
+    border: 5px solid #000000;
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-transform: uppercase;
+        top : 28%;
+        left: 30.5%;
+
+}
+.chat_button{
+	position: absolute;
+    width: 65px;
+    height: 35px;
+    background: #B0B8E5;
+    border: 5px solid #000000;
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-transform: uppercase;
+        top : 100%;
+        left: 110%;
+
+}
