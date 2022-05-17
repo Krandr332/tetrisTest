@@ -27,7 +27,8 @@
     position: absolute;
     border-radius: 20px;
     width: 700px;
-    height: 108.98px;
+    /*height: 108.98px;*/
+    height: 90px;
     background: #B0B8E5;
     border: 5px solid #000000;
     box-sizing: border-box;

@@ -14,6 +14,10 @@ Welcome to T_G's documentation!
    t
 
 
+   t2
+
+
+
 
 Indices and tables
 ==================
