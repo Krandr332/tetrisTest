@@ -46,9 +46,8 @@ class CreatUserForm(forms.ModelForm):
 
 
 class GameHistoryForm(forms.ModelForm):
-    score = forms.IntegerField(required=True)
     user = forms.IntegerField(required=True)
-
+    score = forms.IntegerField(required=True)
     class Meta:
         model = Profile
-        fields = ['score', 'user']
+        fields = ['user','score']

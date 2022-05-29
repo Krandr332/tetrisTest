@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 import generics as generics
 from django.contrib.auth import authenticate, login
@@ -14,7 +15,7 @@ from django.views.generic import CreateView
 from django import views
 from django import template
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile
+from .models import Profile, TopScore
 from .forms import CreatUserForm, LogForm, GameHistoryForm
 from django.contrib.auth import logout
 
@@ -58,7 +59,7 @@ def rating(request):
         'items': Profile.objects.all(),
     }
 
-    return render(request, 'testT/history.html', contex)
+    return render(request, 'testT/rating.html', contex)
 
 
 def reg(request):
@@ -103,17 +104,34 @@ def exit(request):
 
 
 def help_me_please(request):
-    form = GameHistoryForm(request.POST)
     if request.POST:
-        user1 = request.user.id
+        form = GameHistoryForm(request.POST)
+        user1 = request.user
         data = request.body
         data1 = data.decode("utf-8")
         score = (data1.split('&'))[2]
         score = (score.split('='))[1]
         print(score)
         print(user1)
-        s = Profile(score,user1)
-        print(s)
+        filter = Profile.objects.filter(user=user1)
+        l = len(filter)
+        print(l)
+        filter_last_score = filter[l - 1]
+        print(filter_last_score)
+        filter_last_score = str(filter_last_score)
+        filter_last_score = filter_last_score.split('=')
+        filter_last_score = filter_last_score[1]
+        print(filter_last_score)
+        if score > filter_last_score:
+            hist = Profile(user=user1, score=score, top_score=score)
+            hist.save()
+
+        elif score < filter_last_score:
+            hist = Profile(user=user1, score=score, top_score=filter_last_score)
+            hist.save()
+            to_hist = TopScore(user=user1, data_scope=filter_last_score)
+            to_hist.save()
+        print(filter)
 
         return HttpResponse(data)
     return print(request)
