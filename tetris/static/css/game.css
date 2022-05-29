@@ -39,6 +39,7 @@
 }
 
 .right-column {
+	font-size: 23px;
 	color: black;
 	font-family: Typ_Al;
   display: flex;

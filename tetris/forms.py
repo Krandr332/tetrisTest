@@ -44,3 +44,11 @@ class CreatUserForm(forms.ModelForm):
             raise forms.ValidationError('Passwords don\'t match.')
         return cd['password2']
 
+
+class GameHistoryForm(forms.ModelForm):
+    score = forms.IntegerField(required=True)
+    user = forms.IntegerField(required=True)
+
+    class Meta:
+        model = Profile
+        fields = ['score', 'user']

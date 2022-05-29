@@ -1,3 +1,4 @@
+from django.contrib.sites import requests
 from django.urls import path, include
 from .views import *
 
@@ -10,15 +11,5 @@ urlpatterns = [
     path('history/', history, name='history'),
     path('rating/', rating, name='rating'),
     path('chat/', chat, name='chat'),
-
+    path('help_me_please/', help_me_please, name='help_me_please'),
 ]
-# Функции views:
-#     def home(request): - Переодресация
-#     def chat(request): - Переодресация
-#     def game(request): - Переодресация
-#     def auth(request): - Переодресация
-#     def history(request): - Филь-я знач-й бд для вывода знач-й истории
-#     def rating(request): - Филь-я знач-й бд для вывода знач-й рейтинга
-#     def reg(request):  - Регистрация юзера
-#     def avtoriz(request): - Авторизация юзера
-#     def exit(request): - Выход юзера из ака

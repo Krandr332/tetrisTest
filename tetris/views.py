@@ -1,7 +1,10 @@
+import json
+
 import generics as generics
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
-from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.sites import requests
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, HttpResponseServerError
 from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
@@ -11,13 +14,11 @@ from django.views.generic import CreateView
 from django import views
 from django import template
 from django.contrib.auth.forms import UserCreationForm
-
 from .models import Profile
-from .forms import CreatUserForm, LogForm
+from .forms import CreatUserForm, LogForm, GameHistoryForm
 from django.contrib.auth import logout
 
 from .models import Profile
-
 
 
 def home(request):
@@ -25,25 +26,20 @@ def home(request):
 
     return render(request, 'testT/home.html')
 
+
 def chat(request):
     """Переодресация"""
     return render(request, 'testT/chat.html')
 
 
 def game(request):
-    """Переодресация"""
-
     return render(request, 'testT/game.html')
-
-
 
 
 def auth(request):
     """Переодресация"""
 
     return render(request, 'testT/auth.html')
-
-
 
 
 def history(request):
@@ -55,8 +51,6 @@ def history(request):
     return render(request, 'testT/history.html', contex)
 
 
-
-
 def rating(request):
     """Фильтрация значений бд для вывода значений рейтинга"""
 
@@ -65,8 +59,6 @@ def rating(request):
     }
 
     return render(request, 'testT/history.html', contex)
-
-
 
 
 def reg(request):
@@ -88,8 +80,6 @@ def reg(request):
     return render(request, 'testT/register.html', {'form_u': form_u})
 
 
-
-
 def avtoriz(request):
     """авторизация юзера"""
 
@@ -106,10 +96,24 @@ def avtoriz(request):
     return render(request, 'testT/auth.html', {'form': form})
 
 
-
-
-
 def exit(request):
     """выход юзера из ака"""
     logout(request)
     return render(request, 'testT/home.html')
+
+
+def help_me_please(request):
+    form = GameHistoryForm(request.POST)
+    if request.POST:
+        user1 = request.user.id
+        data = request.body
+        data1 = data.decode("utf-8")
+        score = (data1.split('&'))[2]
+        score = (score.split('='))[1]
+        print(score)
+        print(user1)
+        s = Profile(score,user1)
+        print(s)
+
+        return HttpResponse(data)
+    return print(request)
