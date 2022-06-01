@@ -28,9 +28,6 @@ def home(request):
     return render(request, 'testT/home.html')
 
 
-def chat(request):
-    """Переодресация"""
-    return render(request, 'testT/chat.html')
 
 
 def game(request):
