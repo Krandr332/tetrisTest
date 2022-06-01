@@ -15,7 +15,7 @@ from django.views.generic import CreateView
 from django import views
 from django import template
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile, TopScore
+from .models import Profile
 from .forms import CreatUserForm, LogForm, GameHistoryForm
 from django.contrib.auth import logout
 
@@ -54,11 +54,24 @@ def history(request):
 
 def rating(request):
     """Фильтрация значений бд для вывода значений рейтинга"""
+    score_dict = {}
+    user1 = request.user
+    o_all = Profile.objects.all()
+    q = []
+    for i in range(len(o_all)):
+        u_all = o_all[i]
+        u_all = str(u_all)
+        u_all = u_all.split('=')
+        score_dict[u_all[0]] = u_all[1]
 
+
+    print(score_dict)
     contex = {
-        'items': Profile.objects.all(),
+        'item': score_dict,
     }
 
+    print(contex)
+    # return render(request, 'testT/rating.html', contex)
     return render(request, 'testT/rating.html', contex)
 
 
@@ -105,7 +118,6 @@ def exit(request):
 
 def help_me_please(request):
     if request.POST:
-        form = GameHistoryForm(request.POST)
         user1 = request.user
         data = request.body
         data1 = data.decode("utf-8")
@@ -118,6 +130,8 @@ def help_me_please(request):
         print(l)
         filter_last_score = filter[l - 1]
         print(filter_last_score)
+        print(type(filter_last_score))
+
         filter_last_score = str(filter_last_score)
         filter_last_score = filter_last_score.split('=')
         filter_last_score = filter_last_score[1]
@@ -129,8 +143,7 @@ def help_me_please(request):
         elif score < filter_last_score:
             hist = Profile(user=user1, score=score, top_score=filter_last_score)
             hist.save()
-            to_hist = TopScore(user=user1, data_scope=filter_last_score)
-            to_hist.save()
+
         print(filter)
 
         return HttpResponse(data)

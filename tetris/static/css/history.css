@@ -29,6 +29,7 @@
         left: 38%;
 	overflow-y: scroll;
 }
+
 .score1::-webkit-scrollbar {
     width: 12px;
 }

@@ -16,7 +16,13 @@
 	font-style: normal;
 	font-weight: normal;
 }
+.top_score{
+    font-family: Typ_Al;
+
+}
 .score1{
+        font-family: Typ_Al;
+
     position: absolute;
     width: 350px;
     height: 350px;

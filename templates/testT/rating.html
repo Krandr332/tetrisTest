@@ -14,11 +14,11 @@
 {% endblock %}
 
     <div class="score1">
-        {% for i in items %}
-            <p class = "top_score">{{ i.top_score }}</p>
-            <p class = "username">{{ i.user}}</p>
+        {% for key, value in item.items %}
+            <p style="font-family: Typ_Al;font-size: 30px;" class = "top_score">{{ key }}</p>
+            <p style="font-family: Typ_Al;font-size: 30px;" class = "username">{{ value }}</p>
+            <p style="font-family: Typ_Al;font-size: 30px;" >----(♡°▽°♡)----</p>
 
-            <p>________________________</p>
         {% endfor %}
     </div>
 
